@@ -24,38 +24,61 @@
   -webkit-text-size-adjust: 100%;
 }
 
-.wraper {
+.form-container {
   padding-left: 15px;
   padding-right: 15px;
   margin: 0 auto;
   width: 1136px;
 }
 
-.button {
-  width: 90px;
+.form-button {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 91px;
   height: 40px;
-  background-color: lightskyblue;
   border: none;
+  background: #4e75ff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
 }
 
-.input-for-gallery {
-  padding: 12px;
-  border-radius: 4px;
+.form-button:hover {
+  background: #6c8cff;
+}
+
+.form-input {
+  padding: 8px;
   border: 1px solid #808080;
+  border-radius: 4px;
+  width: 272px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #808080;
 }
 
-.input-for-gallery:active {
-  border: 1px solid blue;
+.form-input:hover {
+  border: 1px solid #000;
 }
 
-.gallery-form {
+.form-input:active {
+  border: 1px solid #4e75ff;
+}
+
+.form-gallery {
   display: flex;
   justify-content: center;
   gap: 8px;
   margin-bottom: 16px;
 }
 
-.image-frame {
+.image-size {
   border: 1px solid #808080;
   width: 360px;
   height: 200px;
@@ -66,7 +89,7 @@
   width: 360px;
 }
 
-.gallery-list {
+.gallery {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -88,48 +111,58 @@
 
 .loader {
   display: block;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  position: relative;
-  animation: rotate 1s linear infinite;
   text-align: center;
   margin: 0 auto;
-}
-.loader::before,
-.loader::after {
-  content: '';
-  box-sizing: border-box;
-  position: absolute;
-  inset: 0px;
+  color: #0f0e0e;
+  font-size: 45px;
+  text-indent: -9999em;
+  overflow: hidden;
+  width: 1em;
+  height: 1em;
   border-radius: 50%;
-  border: 5px solid #fff;
-  animation: prixClipFix 2s linear infinite;
-}
-.loader::after {
-  transform: rotate3d(90, 90, 0, 180deg);
-  border-color: #ff3d00;
+  position: relative;
+  transform: translateZ(0);
+  animation: mltShdSpin 2.7s infinite ease, round 2.7s infinite ease;
 }
 
-@keyframes rotate {
+@keyframes mltShdSpin {
+  0% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  5%,
+  95% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+  10%,
+  59% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em,
+      -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em,
+      -0.297em -0.775em 0 -0.477em;
+  }
+  20% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.338em -0.758em 0 -0.42em,
+      -0.555em -0.617em 0 -0.44em, -0.671em -0.488em 0 -0.46em,
+      -0.749em -0.34em 0 -0.477em;
+  }
+  38% {
+    box-shadow: 0 -0.83em 0 -0.4em, -0.377em -0.74em 0 -0.42em,
+      -0.645em -0.522em 0 -0.44em, -0.775em -0.297em 0 -0.46em,
+      -0.82em -0.09em 0 -0.477em;
+  }
+  100% {
+    box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em,
+      0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
+  }
+}
+
+@keyframes round {
   0% {
     transform: rotate(0deg);
   }
   100% {
     transform: rotate(360deg);
-  }
-}
-
-@keyframes prixClipFix {
-  0% {
-    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
-  }
-  50% {
-    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
-  }
-  75%,
-  100% {
-    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
   }
 }
 
